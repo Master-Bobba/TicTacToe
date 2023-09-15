@@ -10,6 +10,7 @@ public class TicTacToeGame {
         Scanner scanner = new Scanner(System.in);
         Board board = new Board();
         GameLogic gl = new GameLogic();
+        StatsReader statsReader = new StatsReader();
 
         board.displayBoard();
 
@@ -21,6 +22,7 @@ public class TicTacToeGame {
                 // Check for a winner
                 if (gl.terminal(board) && gl.winner(board) == X) {
                     System.out.println("Congratulations. You Win.");
+                    statsReader.setLosses();
                     System.exit(0);
                 }
                 // Computer to Move
@@ -29,12 +31,14 @@ public class TicTacToeGame {
                 board.displayBoard();
                 if (gl.terminal(board) && gl.winner(board) == O){
                     System.out.println("Unlucky. Computer wins.");
+                    statsReader.setWins();
                     System.exit(0);
                 }
             } else {
                 System.out.print("Invalid selection. ");
             }
         }
+        statsReader.setDraws();
         System.out.println("GAME OVER!");
     }
 }
