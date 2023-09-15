@@ -1,8 +1,11 @@
 package org.example;
 
+import java.awt.*;
+import java.io.Serializable;
+
 import static org.example.State.*;
 
-public class Board {
+public class Board implements Serializable {
 
     private State[][] board;
 

@@ -4,7 +4,6 @@ import static org.example.State.*;
 
 public class Player {
 
-
     public static State getCurrentPlayer(Board currentBoard){
 
         int xCount = 0;
