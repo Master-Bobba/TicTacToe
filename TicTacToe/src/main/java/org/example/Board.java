@@ -1,5 +1,6 @@
 package org.example;
 
+import static org.example.State.*;
 
 public class Board {
 
@@ -32,6 +33,22 @@ public class Board {
         return this.board;
     }
 
+    private boolean isValidSelection(int i, int j){
+        return board[i][j] != EMPTY ? false : true;
+    }
+
+    public boolean markUserSelection(int selection){
+
+        int i = selection / 10;
+        int j = selection % 10;
+
+        if (isValidSelection(i,j)){
+            board[i][j] = Player.getCurrentPlayer(this);
+            return true;
+        }
+        return false;
+    }
+
 
     /**
      * Just for testing purposes
@@ -46,7 +63,5 @@ public class Board {
         System.out.println(gl.terminal(board));
         System.out.println(gl.winner(board));
     }
-
-
 
 }
